@@ -1,0 +1,70 @@
+:root {
+    --main-color: #2A2A2A;
+    --bg: #FDFDF6;
+    --accent: #C57B57;
+    --spacing: 2rem;
+    --bg-table: #d1d1d1;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+/* Таблица корзины */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing);
+}
+
+th, td {
+    padding: calc(var(--spacing) / 2);
+    text-align: left;
+    border-bottom: 1px solid var(--main-color);
+}
+
+th {
+    background-color: var(--bg-table);
+}
+
+tr a{
+    color: var(--main-color);
+}
+
+/* Сообщение о пустой корзине */
+p {
+    font-size: 1rem;
+    margin-top: var(--spacing);
+}
+
+/* Сумма и итоги */
+h3 {
+    margin-top: var(--spacing);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    table, th, td {
+        display: block;
+        width: 100%;
+    }
+    
+    th {
+        display: none;
+    }
+    
+    td {
+        padding: var(--spacing);
+        border: none;
+        position: relative;
+    }
+    
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: calc(var(--spacing) / 4);
+    }
+}

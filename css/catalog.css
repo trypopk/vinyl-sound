@@ -1,0 +1,51 @@
+.catalog{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 25px; /* расстояние между карточками */
+    justify-content: flex-start;
+}
+
+.card{
+    width: calc(25% - 25px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    min-width: 200px;
+    user-select: none;
+    background: var(--main-color);
+    color: var(--bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 8px 16px var(--main-color);
+    cursor: pointer;
+}
+
+.card a{
+    text-decoration: none;
+    color: var(--bg);
+}
+
+.card img{
+    max-width: 200px;
+    object-fit: cover;
+    min-height: 135px;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+.card img:hover{
+    transform: scale(1.05);
+}
+
+.catalog-menu{
+    display: flex;
+    gap: 40px;
+    margin: 40px 40px;
+}
+
+.catalog-menu a{
+    text-decoration: none;
+    color: var(--main-color);
+}

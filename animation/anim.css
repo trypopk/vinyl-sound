@@ -1,0 +1,158 @@
+/* Контейнер для анимации */
+.vinyl-animation-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    transform: rotate(90deg);
+}
+
+/* Стили для изображения коробки */
+.record-case-img {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+/* Стили для изображения пластинки */
+.vinyl-record-img {
+    position: absolute;
+    width: 280px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 0; /* Начальная прозрачность */
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+    transition: opacity 0.5s ease;
+}
+
+/* Анимация выезда пластинки из коробки */
+@keyframes slideOutVinyl {
+    0% {
+        transform: translate(-50%, -50%) translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    30% {
+        transform: translate(-50%, -50%) translateY(-50px) rotate(90deg);
+        opacity: 1;
+    }
+    70% {
+        transform: translate(-50%, -50%) translateY(-100px) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(-150px) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+/* Анимация вращения пластинки */
+@keyframes spinVinyl {
+    from {
+        transform: translate(-50%, -50%) translateY(-150px) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) translateY(-150px) rotate(360deg);
+    }
+}
+
+/* Классы для управления анимацией */
+.vinyl-emerge {
+    animation: slideOutVinyl 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 1 !important;
+}
+
+.vinyl-spinning {
+    animation: spinVinyl 3s linear infinite;
+}
+
+/* Анимация открытия коробки (легкое движение) */
+@keyframes openCase {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(0.98) translateY(-5px);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.case-opening {
+    animation: openCase 1s ease;
+}
+
+/* Эффект при наведении на пластинку
+.vinyl-record-img:hover {
+    filter: drop-shadow(0 0 15px rgba(255,215,0,0.7)) brightness(1.1);
+    cursor: pointer;
+} */
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .vinyl-animation-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .record-case-img {
+        width: 250px;
+    }
+    
+    .vinyl-record-img {
+        width: 220px;
+    }
+    
+    @keyframes slideOutVinyl {
+        100% {
+            transform: translate(-50%, -50%) translateY(-120px) rotate(360deg);
+        }
+    }
+    
+    @keyframes spinVinyl {
+        from {
+            transform: translate(-50%, -50%) translateY(-120px) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) translateY(-120px) rotate(360deg);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .vinyl-animation-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .record-case-img {
+        width: 200px;
+    }
+    
+    .vinyl-record-img {
+        width: 180px;
+    }
+    
+    @keyframes slideOutVinyl {
+        100% {
+            transform: translate(-50%, -50%) translateY(-100px) rotate(360deg);
+        }
+    }
+    
+    @keyframes spinVinyl {
+        from {
+            transform: translate(-50%, -50%) translateY(-100px) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) translateY(-100px) rotate(360deg);
+        }
+    }
+}

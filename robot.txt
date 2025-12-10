@@ -1,0 +1,41 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin.php
+Disallow: /config.php
+Disallow: /upload.php
+Disallow: /login.php
+Disallow: /logout.php
+Disallow: /register.php
+Disallow: /add_to_cart.php
+Disallow: /remove_from_cart.php
+Disallow: /cart.php
+Disallow: /checkout.php
+Disallow: /profile.php
+Disallow: /*.php$
+Allow: /*.php?$
+Allow: /index.php
+Allow: /about.php
+Allow: /catalog.php
+Allow: /catalog-item.php
+Allow: /blog.php
+Allow: /blog-article.php
+Allow: /view.php
+Allow: /success.php
+
+# Блокировка служебных папок внутри admin
+Disallow: /admin/anume/
+Disallow: /admin/block/
+Disallow: /admin/css/
+Disallow: /admin/image/
+
+# Специальные правила для Yandex
+User-agent: Yandex
+Clean-param: ref&sort&filter /catalog.php
+Clean-param: page /blog.php
+Clean-param: id /catalog-item.php&/blog-article.php&/view.php
+
+# Указание карты сайта (если есть)
+Sitemap: https://vinylsound.example.com/sitemap.xml
+# Или для локальной разработки:
+# Sitemap: http://localhost/sitemap.xml
